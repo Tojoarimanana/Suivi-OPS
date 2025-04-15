@@ -37,7 +37,7 @@ def main():
             with zipfile.ZipFile(zip_path, "r") as zip_ref:
                 zip_ref.extractall(tmpdir)
 
-            shp_files = [f for f in os.listdir(tmpdir) if f.endswith(".shp")]
+            shp_files = [os.path.join(root, file) for root, dirs, files in os.walk(tmpdir) for file in files if file.endswith(".shp")]
 
             if shp_files:
                 shp_path = os.path.join(tmpdir, shp_files[0])
