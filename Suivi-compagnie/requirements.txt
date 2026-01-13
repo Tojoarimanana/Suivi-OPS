@@ -5,4 +5,4 @@ plotly
 folium
 streamlit-folium
 geopandas
-docx
+python-docx
