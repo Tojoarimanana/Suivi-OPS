@@ -6,3 +6,4 @@ folium
 streamlit-folium
 geopandas
 python-docx
+fpdf2
