@@ -90,6 +90,20 @@ def afficher_table(df, colonnes, titre):
 
 def main():
     st.set_page_config(page_title="Suivi des Compagnies Pétrolières", layout="wide")
+
+    # --- Image de fond ---
+    page_bg_img = '''
+    <style>
+    body {
+    background-image: url("https://www.exemple.com/mon_image.jpg"); /* Remplacez par votre image */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    }
+    </style>
+    '''
+    st.markdown(page_bg_img, unsafe_allow_html=True)
+
     st.title('Tableau de Bord - Suivi des Compagnies Pétrolières')
 
     file_path = st.file_uploader("Télécharger votre fichier Excel", type=["xlsx"])
@@ -128,7 +142,6 @@ def main():
                     "Rapport"
                 ])
 
-                # Colonnes par onglet
                 groupes = {
                     "Compagnie": ['Compagnie', 'Nom', 'ID', 'Coordonée_X', 'Coordonée_Y', 'Date_de_signature_de_contrats', 'Date_d_entrée_en_vigeur'],
                     "Situation Actuelle": ['Phases_actuelle', 'Date_de_debut_de_la_phase', 'Date_de_la_fin_de_la_phase', 'Situation_et_Activités_en_cours', 'Travaux_déjà_réalisés', 'Commentaires1'],
@@ -195,6 +208,29 @@ def main():
                                     )
             else:
                 st.warning("Aucun fichier .shp trouvé dans l'archive.")
+
+    # --- Footer avec ton nom ---
+    st.markdown(
+        """
+        <style>
+        .footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: #f1f1f1;
+            color: #333;
+            text-align: center;
+            padding: 5px;
+            font-size: 12px;
+        }
+        </style>
+        <div class="footer">
+            Conçu par <b>RANAIVOSOA Tojoarimanana Hiratriniala      Tel :+261 33 51 880 19</b>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
 
 if __name__ == "__main__":
     main()
